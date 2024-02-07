@@ -5,7 +5,8 @@ Checkout to version.
 
 ```sh
 cd packages/admin
-packages/admin#  git checkout x.x.x
+git pull origin 1.0.6
+git checkout 1.0.6
 ```
 
 ## If You Edited Submodule and You Want to Restore
@@ -33,7 +34,7 @@ Pull the version you want
 
 ```sh
 cd packages/admin
-git checkout 1.0.4
+git checkout 1.0.6
 ```
 
 ## Adding/ReInstalling a Submodule - (olobase-admin)
@@ -72,7 +73,7 @@ git config --file .gitmodules --name-only --get-regexp path
 submodule.packages/admin.path
 ```
 
-## Removing Admin Submodule
+## Removing olobase-admin Submodule
 
 ```sh
 git rm packages/admin
