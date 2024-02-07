@@ -1,10 +1,11 @@
 
-## If You Want Upgrade to New Version
+## If You Want Upgrade to New Version of olobase-admin
 
 Checkout to version.
 
 ```sh
-git checkout x.x.x
+cd packages/admin
+packages/admin#  git checkout x.x.x
 ```
 
 ## If You Edited Submodule and You Want to Restore
@@ -31,10 +32,11 @@ git submodule update --recursive --remote
 Pull the version you want
 
 ```sh
+cd packages/admin
 git checkout 1.0.4
 ```
 
-## Admin Submodule ReInstallation
+## Adding/ReInstalling a Submodule - (olobase-admin)
 
 Remove packages/ line from your .gitignore file
 
@@ -49,8 +51,6 @@ packages/
 Add admin submodule
 
 ```sh
-cd packages/
-
 git submodule add git@github.com:olomadev/olobase-admin.git packages/admin
 ```
 
@@ -74,8 +74,11 @@ submodule.packages/admin.path
 
 ## Removing Admin Submodule
 
-https://stackoverflow.com/questions/1260748/how-do-i-remove-a-submodule
-
 ```sh
-git rm submodule.packages/admin.path
+git rm packages/admin
+git commit & push
 ```
+
+More details
+
+https://stackoverflow.com/questions/1260748/how-do-i-remove-a-submodule
