@@ -4,7 +4,7 @@
       disable-create
       :fields="fields"
       :filters="filters"
-      :items-per-page="50"
+      :items-per-page="200"
     >
       <va-data-table-server
         :group-by="groupBy"

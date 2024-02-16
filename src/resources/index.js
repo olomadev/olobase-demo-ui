@@ -24,7 +24,7 @@ export default [
     actions: ["create", "list", "edit", "delete", "show"],
   },
   {
-    name: "employeegrades",
+    name: "employee-grades",
     label: "name",
     permissions: [
       { name: "admin", actions: ["create","list","edit", "delete", "show"] },

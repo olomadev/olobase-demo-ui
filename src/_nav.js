@@ -70,7 +70,7 @@ export default  {
           {
             icon: "circle",
             text: t("menu.dataTableServerEditable"),
-            link: "/employeegrades",
+            link: "/employee-grades",
           },
         ],
       },
