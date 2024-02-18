@@ -5,7 +5,6 @@
 
     <v-row>
       <v-card width="350" class="noselect" style="margin-top: 200px">
-
         <v-alert
           v-if="resetPassword"
           type="info"
@@ -93,7 +92,6 @@
         </div>
       </v-col>
     </v-row>
-
   </div>
 </template>
 

@@ -43,6 +43,11 @@ const Trans = {
   },
 
   getPersistedLocale() {
+    const urlSegments = window.location.href.split('/');
+    const uriLocale = urlSegments[urlSegments.length - 1];
+    if (Trans.isLocaleSupported(uriLocale)) {
+      return uriLocale;
+    }
     const persistedLocale = cookies.get("lang");
     if (Trans.isLocaleSupported(persistedLocale)) {
       return persistedLocale;
