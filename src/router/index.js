@@ -27,11 +27,11 @@ const routes = [
   // },
   {
     path: "/",
-    redirect: "/login/:lang",
+    redirect: "/login/:locale?",
     component: Member,
     children: [
       {
-        path: "/login/:lang",
+        path: "/login/:locale?",
         name: "login",
         component: Login,
         meta: {
