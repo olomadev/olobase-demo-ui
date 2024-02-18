@@ -161,9 +161,7 @@ span.circle {
   min-height: 47px !important;
   font-size: 12px;
 }
-/* fix the file input heith bug */
 .v-file-input .v-field__input, .v-text-field__prefix, .v-text-field__suffix{
-  min-height: 47px !important;
   font-size: 12px;
 }
 /* fix the select input height bug */

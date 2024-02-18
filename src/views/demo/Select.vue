@@ -8,7 +8,7 @@
             :label="$t('demo.grades')"
             clearable
             multiple
-            reference="employeegrades"
+            reference="employee-grades"
             v-model="model.grades"
           >
           </va-select-input>

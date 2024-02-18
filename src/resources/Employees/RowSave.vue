@@ -79,7 +79,7 @@
             <va-select-input
               source="gradeId"
               v-model="model.gradeId"
-              reference="employeegrades"
+              reference="employee-grades"
               variant="outlined"
             ></va-select-input>
           </v-col>

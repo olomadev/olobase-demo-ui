@@ -63,7 +63,7 @@
       <v-col sm="3" class="mr-3">
         <va-select-input
           source="gradeId"
-          reference="employeegrades"
+          reference="employee-grades"
         ></va-select-input>
       </v-col>
       <v-col sm="3" class="mr-3">
