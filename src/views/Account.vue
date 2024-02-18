@@ -518,6 +518,8 @@ export default {
             }
           });
         }
+      } catch (e) {
+        // console.log(e.message);
       } finally {
         this.accountUpdating = false;
       }

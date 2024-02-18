@@ -139,7 +139,7 @@ const useHttp = function (axios) {
             return Promise.reject(_error);
           }
 
-        } // 401 end
+        } // 401 end        
         //
         // php string errors
         // 
@@ -149,7 +149,7 @@ const useHttp = function (axios) {
             && typeof error.response.data.data.error === "string"
             ) {
           store.commit("messages/show", { type: 'error', message: error.response.data.data.error });
-          return Promise.reject(error);
+          return;
         }
         //
         // php object errors
@@ -162,7 +162,7 @@ const useHttp = function (axios) {
           if (error.response["data"] 
             && error.response["data"]["error"]) {
             store.commit("messages/show", { type: 'error', message: error.response["data"]["error"] })
-            return Promise.reject(error);
+            return;
           }
           //
           // info notifications
@@ -171,13 +171,13 @@ const useHttp = function (axios) {
             && error.response["data"]["data"] 
             && typeof error.response.data.data.info !== "undefined") {
             store.commit("messages/show", { type: 'info', message: error.response.data.data.info });
-            return Promise.reject(error);
+            return;
           }
           //
           // form validation errors & general errors
           //
-          let errorStr = parseApiErrors(error)
-          return Promise.reject(errorStr);
+          parseApiErrors(error)
+          return;
 
         } // end response status
 
