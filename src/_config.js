@@ -10,8 +10,10 @@ export default {
   // va-list provider global settings
   // 
   list: {
+    hideHeader: false,
     itemsPerPage: 10,
     itemsPerPageOptions: [10,20,50,100,200,-1],
+    disableSettings: false,
     disableGlobalSearch: false,
     disableItemsPerPage: false,
   },
