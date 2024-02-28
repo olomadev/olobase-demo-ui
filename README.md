@@ -7,10 +7,21 @@ Demo application installation.
 git clone git@github.com:olomadev/olobase-ui-demo myproject
 ```
 
-Install npm packages
+Go to your project root
 
 ```sh
 cd /var/www/olobase-ui-demo
+```
+
+Init olobase-admin submodule
+
+```sh
+git submodule update --init
+```
+
+Install npm packages
+
+```sh
 npm i 
 ```
 
@@ -33,6 +44,15 @@ npm run build
 ```
 
 ## Installing Node.js Using Nvm Manager
+
+Install nvm
+
+```sh
+sudo apt update
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+source ~/.bashrc
+nvm --version
+```
 
 Please install the following components in your working environment.
 
@@ -79,7 +99,9 @@ nvm list-remote
         v17.4.0
         v17.5.0
         v17.6.0
-        v20.9.0 (Latest)
+        v20.9.0  (Latest)
+        v20.11.1 (Latest LTS: Iron)
+        v21.0.0
 ```
 
 It’s a very long list! You can install a version of Node by typing any of the release versions you see. For instance, to get version v16.14.0 (another LTS release), you can type:
@@ -91,13 +113,13 @@ node -v
 ```
 
 ```
-nvm install 20.9.0
+nvm install 20.11.1
 ```
 
 if you already have another version use "use" keyword
 
 ```
-nvm use 20.9.0
+nvm use 20.11.1
 ```
 
 Set default version
@@ -112,13 +134,6 @@ You can see the different versions you have installed by typing:
 nvm list
 ```
 
-```
-node -v
-```
-
-Output
-
-v20.9.0
 
 
 ## Project setup

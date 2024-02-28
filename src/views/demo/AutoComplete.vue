@@ -4,14 +4,14 @@
       <v-card-text>
         <v-row no-gutters>
           <v-col lg="6" md="6" sm="4">
-            <va-autocomplete-input
+            <va-auto-complete-input
               source="employees"
               resource="employees"
               reference="employees"
               variant="outlined"
               multiple
             >
-            </va-autocomplete-input>
+            </va-auto-complete-input>
           </v-col>
         </v-row>
 
@@ -81,14 +81,14 @@ export default {
   created() {
     this.template = `<template>
   <div>
-    <va-autocomplete-input
+    <va-auto-complete-input
       source="employees"
       resource="employees"
       reference="employees"
       variant="outlined"
       multiple
     >
-    </va-autocomplete-input>
+    </va-auto-complete-input>
   </div>
 </template>`;
   },

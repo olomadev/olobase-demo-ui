@@ -12,6 +12,7 @@ yarn.lock
 package-lock.json
 
 # Env files
+.env.dev
 .env.prod
 
 # Editor directories and files

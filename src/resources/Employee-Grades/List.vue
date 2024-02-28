@@ -1,21 +1,22 @@
 <template>
   <div>
     <va-list 
-        disable-create
-        hide-bulk-copy
-        :fields="fields"
-        :items-per-page="50"
+      disable-create
+      row-create
+      hide-bulk-copy
+      :fields="fields"
+      :items-per-page="50"
       >
-        <va-data-table-server
-          row-create
-          row-clone
-          row-edit
-          disable-edit
-          disable-show
-          disable-clone
-          disable-create-redirect
-        >
-        </va-data-table-server>
+      <va-data-table-server
+        row-create
+        row-clone
+        row-edit
+        disable-edit
+        disable-show
+        disable-clone
+        disable-create-redirect
+      >
+      </va-data-table-server>
     </va-list>
     
     <v-tabs

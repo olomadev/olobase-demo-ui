@@ -2,6 +2,7 @@
   <div> 
     <va-list 
       disable-create
+      row-create
       :fields="fields"
       :filters="filters"
       :items-per-page="200"

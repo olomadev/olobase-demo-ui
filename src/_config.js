@@ -9,9 +9,13 @@ export default {
   // va-form component global settings
   // 
   form: {
+    disableGenerateUid: false, // if this option is "true" the application will generate integer IDs.
     disableExitWithoutSave: false,
   },
-  dateFormat: "shortFormat",
+  i18n: {
+    dateFormat: "shortFormat",  
+    datePickerFormat: "dd-mm-YYYY",
+  },
   //
   // va-list provider global settings
   // 
@@ -28,37 +32,45 @@ export default {
   // 
   snackbar: {
     error: {
+      class: "mt-10 slide-in",
       color: "error",
       icon: "mdi-close-circle",
-      mode: "multi-line",
-      position: "top",
+      location: "top",
+      variant: "elevated",
+      rounded: 1,
       timeout: 7500,
       title: "va.messages.error",
       visible: true 
     },
     info: {
+      class: "mt-10 slide-in",
       color: "blue",
       icon: "mdi-information",
-      mode: "multi-line",
-      position: "top",
+      location: "top",
+      variant: "elevated",
+      rounded: 1,
       timeout: 7500,
       title: "va.messages.info",
       visible: true
     },
     success: {
+      class: "mt-10 slide-in",
       color: "success",
       icon: "mdi-checkbox-marked-circle",
-      mode: "multi-line",
-      position: "top",
+      location: "top",
+      variant: "elevated",
+      rounded: 1,
       timeout: 7500,
       title: "va.messages.success",
       visible: true
     },
     warning: {
+      class: "mt-10 slide-in",
       color: "warning",
       icon: "mdi-alert-circle",
-      mode: "multi-line",
-      position: "top",
+      location: "top",
+      variant: "elevated",
+      rounded: 1,
       timeout: 7500,
       title: "va.messages.warning",
       visible: true

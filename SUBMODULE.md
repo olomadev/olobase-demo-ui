@@ -1,4 +1,15 @@
 
+## Submodule Init
+
+If you have already cloned a repository and want to load its submodules:
+
+In your project root:
+
+```sh
+cd /olobase-demo-ui
+git submodule update --init
+```
+
 ## If You Want Upgrade to New Version of olobase-admin
 
 Checkout to version.
@@ -14,14 +25,6 @@ git checkout 1.0.6
 ```sh
 git restore .
 // HEAD detached at 1.0.4
-```
-
-## Submodule Init
-
-If you have already cloned a repository and want to load its submodules:
-
-```sh
-git submodule update --init
 ```
 
 ## Updating Submodule

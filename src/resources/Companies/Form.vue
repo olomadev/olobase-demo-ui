@@ -134,7 +134,7 @@ export default {
       return errors;
     },
   },
-  created() {
+  created() {    
     this.model.id = this.generateUid();
   }
 };

@@ -114,8 +114,8 @@
           table-name="employeeFiles"
         ></va-file-field>
 
-<!-- Display images 
-        <va-image-field 
+        <!-- Display images 
+          <va-image-field 
           source="files" 
           :item="model" 
           table-name="employeeFiles"

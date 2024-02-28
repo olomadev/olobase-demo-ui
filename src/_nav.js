@@ -2,8 +2,8 @@ export default  {
 
   build: async function(t, admin) {
 
-    const user = await admin.can(["user"]);
-    const adminUser = await admin.can(["user", "admin"]);
+    const userRole = await admin.can(["user"]);
+    const adminRole = await admin.can(["admin"]);
 
     return [
       {
