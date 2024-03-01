@@ -28,6 +28,7 @@
       <v-col sm="3" class="mr-3">
         <va-date-input
           source="employmentStartDate"
+          :error-messages="employmentStartDateErrors"
         ></va-date-input>
       </v-col>
       <v-col sm="3" class="mr-3">
@@ -78,7 +79,6 @@
           primary-key="childId"
           :headers="headers"
           :fields="fields"
-          :generate-uid="true"
         >
           <template v-slot:[`edit`]="{ field }">
             <template v-if="field.source == 'childName'">
@@ -198,6 +198,9 @@ export default {
             required
           }
         },
+        employmentStartDate: {
+          required
+        }
       },
       form: {
         childName: {
@@ -240,6 +243,13 @@ export default {
       const field = "companyId";
       if (!this.v$['model'][field].id.$dirty) return errors;
       this.v$['model'][field].id.required.$invalid && errors.push(this.$t("v.text.required"));
+      return errors;
+    },
+    employmentStartDateErrors() {
+      const errors = [];
+      const field = "employmentStartDate";
+      if (!this.v$['model'][field].$dirty) return errors;
+      this.v$['model'][field].required.$invalid && errors.push(this.$t("v.text.required"));
       return errors;
     },
     childNameErrors() {

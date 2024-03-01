@@ -4,7 +4,6 @@
       :filters="filters"
       :fields="fields"
       :items-per-page="10"
-      disable-create
       enable-save-dialog
     >
       <va-data-table-server
@@ -101,16 +100,6 @@ export default {
             reference: "jobtitles",
           }
         },
-        {
-          source: "gradeId",
-          type: "select",
-          returnObject: false, // sends ids as array
-          attributes: {
-            optionText: "name",
-            multiple: true,
-            reference: "employeegrades",
-          }
-        },
       ],
       fields: [
         {
@@ -156,7 +145,13 @@ export default {
           },
           sortable: true,
           width: "20%"
-        }
+        },
+        {
+          source: "employmentStartDate",
+          type: "date",
+          sortable: true,
+          width: "15%"
+        },
       ],
     };
   }

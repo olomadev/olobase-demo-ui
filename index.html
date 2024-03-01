@@ -416,15 +416,27 @@
     /* Solid datatable  */
     table th + th { border-left:1px solid #dddddd; }
     table td + td { border-left:1px solid #dddddd; }
-
+    /* fixes the date picker hide-details margin bottom problem */
+/*    table td + td:has(.v-input) {
+      vertical-align: top;
+    }*/
+    /*.va-data-table > .section {
+      margin-top: -20px;
+    }*/
     /* va-data-table solids */
     .va-data-table .v-table__wrapper table {
       border: 1px solid #dddddd;
       border-radius: 4px;
     }
+    .va-data-table .v-table__wrapper table th + th {
+      border-left: 0 !important;
+    }
     .va-array-table-input .v-table__wrapper table {
       border: 1px solid #dddddd;
       border-radius: 4px;
+    }
+    .va-array-table-input .v-table__wrapper table th + th {
+      border-left: 0 !important;
     }
     .va-checklist-input .v-table__wrapper table {
       border: 1px solid #dddddd;
@@ -439,7 +451,6 @@
       border: 1px solid #dddddd;
       border-radius: 4px;
     }
-
     /* Vue 3 updates end */
     .noselect {
       -webkit-touch-callout: none; /* iOS Safari */
@@ -489,6 +500,13 @@
     }
     .language-bash {
       font-size: 14px !important;
+    }
+    /* On screens that are 1600px or less, set data grid paddings more */
+    @media screen and (max-width: 1600px) {
+      .v-table > .v-table__wrapper > table > tbody > tr > td, .v-table > .v-table__wrapper > table > tbody > tr > th, .v-table > .v-table__wrapper > table > thead > tr > td, .v-table > .v-table__wrapper > table > thead > tr > th, .v-table > .v-table__wrapper > table > tfoot > tr > td, .v-table > .v-table__wrapper > table > tfoot > tr > th {
+        padding-top: 8px !important;
+        padding-bottom: 8px !important;
+      }
     }
   </style>
 </head>

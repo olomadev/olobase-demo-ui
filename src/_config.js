@@ -14,7 +14,12 @@ export default {
   },
   i18n: {
     dateFormat: "shortFormat",  
-    datePickerFormat: "dd-mm-YYYY",
+    en: {
+      dateFieldDisplayFormat: "YYYY-mm-dd" // YYYY.mm.dd, YYYY\mm\dd or YYYY/mm/dd
+    },
+    tr: {
+      dateFieldDisplayFormat: "dd-mm-YYYY"
+    },
   },
   //
   // va-list provider global settings
@@ -37,7 +42,7 @@ export default {
       icon: "mdi-close-circle",
       location: "top",
       variant: "elevated",
-      rounded: 1,
+      rounded: true,
       timeout: 7500,
       title: "va.messages.error",
       visible: true 
@@ -48,7 +53,7 @@ export default {
       icon: "mdi-information",
       location: "top",
       variant: "elevated",
-      rounded: 1,
+      rounded: true,
       timeout: 7500,
       title: "va.messages.info",
       visible: true
@@ -59,7 +64,7 @@ export default {
       icon: "mdi-checkbox-marked-circle",
       location: "top",
       variant: "elevated",
-      rounded: 1,
+      rounded: true,
       timeout: 7500,
       title: "va.messages.success",
       visible: true
@@ -70,7 +75,7 @@ export default {
       icon: "mdi-alert-circle",
       location: "top",
       variant: "elevated",
-      rounded: 1,
+      rounded: true,
       timeout: 7500,
       title: "va.messages.warning",
       visible: true
