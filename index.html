@@ -12,7 +12,7 @@
     /* 
       olobase app.css 
       v1.
-      last revision: 28.02.2024
+      last revision: 06.03.2024
     */
     #app {
       width: 100%;
@@ -26,7 +26,7 @@
       font-size: 13px !important;
     }
     footer {
-       position: fixed;
+      /* position: fixed; should not be fixed  */
        left: 0;
        bottom: 0;
        width: 100%;
@@ -506,6 +506,12 @@
       .v-table > .v-table__wrapper > table > tbody > tr > td, .v-table > .v-table__wrapper > table > tbody > tr > th, .v-table > .v-table__wrapper > table > thead > tr > td, .v-table > .v-table__wrapper > table > thead > tr > th, .v-table > .v-table__wrapper > table > tfoot > tr > td, .v-table > .v-table__wrapper > table > tfoot > tr > th {
         padding-top: 8px !important;
         padding-bottom: 8px !important;
+      }
+      /* datatable checkbox padding */
+      .v-data-table .v-table__wrapper > table > thead > tr > td.v-data-table-column--no-padding, .v-data-table .v-table__wrapper > table > thead > tr th.v-data-table-column--no-padding, .v-data-table .v-table__wrapper > table tbody > tr > td.v-data-table-column--no-padding, .v-data-table .v-table__wrapper > table tbody > tr th.v-data-table-column--no-padding {
+          padding-left: 16px !important;
+          padding-top: 8px !important;
+          padding-right: 7px !important;
       }
     }
   </style>

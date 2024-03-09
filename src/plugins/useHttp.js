@@ -193,7 +193,9 @@ const useHttp = function (axios) {
  * parse validation errors
  */
 function parseApiErrors(error) {
-  if (typeof error.response.data.data.error !== "undefined") {
+  if (error.response["data"] 
+    && error.response["data"]["data"] 
+    && error.response["data"]["data"]["error"]) {
     let errorHtml = ""
     let hasError = false
     let errorObject = error.response.data.data.error
