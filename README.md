@@ -4,13 +4,13 @@
 Demo application installation.
 
 ```sh
-git clone git@github.com:olomadev/olobase-ui-demo myproject
+git clone git@github.com:olomadev/olobase-ui-demo demo
 ```
 
 Go to your project root
 
 ```sh
-cd /var/www/olobase-ui-demo
+cd /var/www/demo
 ```
 
 Init olobase-admin submodule
@@ -133,8 +133,6 @@ You can see the different versions you have installed by typing:
 ```
 nvm list
 ```
-
-
 
 ## Project setup
 

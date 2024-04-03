@@ -48,7 +48,6 @@ const useHttp = function (axios) {
         (statusOk && configUrlSegments.includes("update"))
       ) {
         eventBus.emit("last-dialog", false)  // close edit modal window if it's opened
-        store.commit("messages/show", { type: 'success', message: i18n.global.t("form.saved") });
       }
       if (statusOk &&
        cookies.get(cookieKey.token) && 
@@ -139,7 +138,8 @@ const useHttp = function (axios) {
             return Promise.reject(_error);
           }
 
-        } // 401 end        
+        } // 401 end       
+
         //
         // php string errors
         // 
@@ -147,6 +147,7 @@ const useHttp = function (axios) {
             && error.response["data"]["data"] 
             && typeof error.response.data.data.error !== "undefined" 
             && typeof error.response.data.data.error === "string"
+            && store.getters["messages/getHideApiErrors"] == false
             ) {
           store.commit("messages/show", { type: 'error', message: error.response.data.data.error });
           return;
@@ -155,7 +156,9 @@ const useHttp = function (axios) {
         // php object errors
         // 
         if (error.response["status"]
-            && error.response.status == 400) {
+            && error.response.status == 400
+            && store.getters["messages/getHideApiErrors"] == false
+            ) {
           //
           // mezzio native errors
           //

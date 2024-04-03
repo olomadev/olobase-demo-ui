@@ -22,10 +22,10 @@
             <v-col
               v-for="(item, i) in items"
               :key="i"
-              cols="6"
+              lg="6" md="6" sm="12"
               class="mb-3"
             >
-              <v-sheet border rounded :class="(isOdd(i)) ? '' : 'mr-lg-5 mr-md-5 mr-sm-2'">
+              <v-sheet border rounded :class="(isOdd(i)) ? '' : 'mr-lg-5 mr-md-5 mr-sm-0'">
                 <v-list-item
                   :title="item.raw.username"
                   :subtitle="item.raw.id"
