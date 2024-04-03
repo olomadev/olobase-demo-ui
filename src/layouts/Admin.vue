@@ -74,7 +74,7 @@
           :key="getCurrentLocale" 
           :menu="getFooterMenu"
         >
-          <span style="font-size:13px">&copy; 2023</span>
+          <span style="font-size:13px">&copy; 2024</span>
         </va-footer>
       </template>
     </va-layout>
