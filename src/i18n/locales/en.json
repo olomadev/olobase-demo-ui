@@ -73,7 +73,11 @@
     "saved" : "Saved sucessfully"
   },
   "messages": {
-    "welcome" : "Welcome to demo application" 
+    "welcome" : "Welcome to demo application",
+    "excelImport": {
+      "fixErrors" : "Please resolve the flagged issues and re-upload the file",
+      "emptyImportData" : "Before you can save the list, you must upload a file"
+    },
   },
   "routes": {
     "home": "Home",

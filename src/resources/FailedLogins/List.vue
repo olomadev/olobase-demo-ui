@@ -18,7 +18,13 @@
         }"
       >
         <template v-slot:default="{ items }">
-          <v-row no-gutters>
+          <v-row no-gutters class="bordered pt-1 pb-1 justify-center" v-if="$store.state.api.loading">
+            <v-progress-circular
+              color="primary"
+              indeterminate
+            ></v-progress-circular>
+          </v-row>
+          <v-row no-gutters v-else>
             <v-col
               v-for="(item, i) in items"
               :key="i"
@@ -86,15 +92,15 @@
         </template>
 
         <template v-slot:no-data>
-          <div class="va-table">
-            <v-table density="compact">
-              <tbody>
-                <tr>
-                  <td align="center">{{ $t("va.datatable.nodata")}}</td>
-                </tr>
-              </tbody>
-            </v-table>
-          </div>
+          <v-row no-gutters class="bordered pt-1 pb-1 justify-center" v-if="$store.state.api.loading">
+            <v-progress-circular
+              color="primary"
+              indeterminate
+            ></v-progress-circular>
+          </v-row>
+          <v-row no-gutters class="bordered pt-2 pb-2 justify-center" v-else>
+            {{ $t("va.datatable.nodata")}}
+          </v-row>
         </template>
       </va-data-iterator-server>
     </va-list>
@@ -177,7 +183,13 @@ export default {
       }"
     >
       <template v-slot:default="{ items }">
-        <v-row no-gutters>
+        <v-row no-gutters class="bordered pt-1 pb-1 justify-center" v-if="$store.state.api.loading">
+          <v-progress-circular
+            color="primary"
+            indeterminate
+          ></v-progress-circular>
+        </v-row>
+        <v-row no-gutters v-else>
           <v-col
             v-for="(item, i) in items"
             :key="i"
@@ -227,15 +239,15 @@ export default {
       </template>
 
       <template v-slot:no-data>
-        <div class="va-table">
-          <v-table density="compact">
-            <tbody>
-              <tr>
-                <td align="center">{{ $t("va.datatable.nodata")}}</td>
-              </tr>
-            </tbody>
-          </v-table>
-        </div>
+        <v-row no-gutters class="bordered pt-1 pb-1 justify-center" v-if="$store.state.api.loading">
+          <v-progress-circular
+            color="primary"
+            indeterminate
+          ></v-progress-circular>
+        </v-row>
+        <v-row no-gutters class="bordered pt-2 pb-2 justify-center" v-else>
+          {{ $t("va.datatable.nodata")}}
+        </v-row>
       </template>
     </va-data-iterator-server>
   </va-list>

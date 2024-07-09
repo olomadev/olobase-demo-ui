@@ -94,9 +94,6 @@ export default {
   },
   data() {
     return {
-      companyId: { id: "ebf6b935-5bd8-46c1-877b-9c758073f278", name: "Demo Company 1" },
-      departmentId: null,
-
       tab: null,
       template: null,
       script: null,

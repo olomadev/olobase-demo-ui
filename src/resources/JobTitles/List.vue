@@ -56,7 +56,7 @@ import { required } from "@vuelidate/validators";
 import Clipboard from "olobase-admin/src/mixins/clipboard"
 
 export default {
-  props: ["resource"],
+  props: ["resource", "title"],
   mixins: [Clipboard],
   inheritAttrs: false,
   created() {

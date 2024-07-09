@@ -90,7 +90,7 @@
         <v-row no-gutters>
           <v-col lg="8" md="12" sm="12">
             <va-array-table-input
-              source="employeeChildren"
+              source="employeeChildrenForm"
               :title="$t('resources.employees.fields.employeeChildren')"
               v-model="model.employeeChildren"
               primary-key="childId"
@@ -102,7 +102,7 @@
                 <template v-if="field.source == 'childName'">
                   <va-text-input
                     :key="field.source"
-                    v-model="form.childName"
+                    v-model="employeeChildrenForm.childName"
                     variant="outlined"
                     :error-messages="childNameErrors"
                     clearable
@@ -112,7 +112,7 @@
                 <template v-if="field.source == 'childBirthdate'">
                   <va-date-input
                     :key="field.source"
-                    v-model="form.childBirthdate"
+                    v-model="employeeChildrenForm.childBirthdate"
                     variant="outlined"
                     :error-messages="childBirthdateErrors"
                   >
@@ -178,7 +178,7 @@ export default {
           }
         },
       },
-      form: {
+      employeeChildrenForm: {
         childName: {
           required,
         },
@@ -224,13 +224,13 @@ export default {
   },
   created() {
     if (this.item && Object.prototype.hasOwnProperty.call(this.item, 'id')) {
-      this.model = this.item;
+      this.model = Object.assign(this.model, this.item);
     } else {
       this.model.id = this.generateUid();
     }
   },
   computed: {
-    form: {
+    employeeChildrenForm: {
       get() {
         return this.$store.getters['employees/getRow'];
       },
@@ -262,16 +262,16 @@ export default {
     childNameErrors() {
       const errors = [];
       const field = "childName";
-      if (!this.v$["form"][field].$dirty) return errors;
-      this.v$["form"][field].required.$invalid &&
+      if (!this.v$["employeeChildrenForm"][field].$dirty) return errors;
+      this.v$["employeeChildrenForm"][field].required.$invalid &&
         errors.push(this.$t("v.text.required"));
       return errors;
     },
     childBirthdateErrors() {
       const errors = [];
       const field = "childBirthdate";
-      if (!this.v$["form"][field].$dirty) return errors;
-      this.v$["form"][field].required.$invalid &&
+      if (!this.v$["employeeChildrenForm"][field].$dirty) return errors;
+      this.v$["employeeChildrenForm"][field].required.$invalid &&
         errors.push(this.$t("v.text.required"));
       return errors;
     },
@@ -289,7 +289,7 @@ export default {
       } else {
         await this.admin.http({ method: "POST", url: "/employees/create", data: this.model });
       }
-      this.$store.dispatch("api/refresh", 'employees');
+      this.admin.refresh('employees');
       this.loading = false;
     }
   },

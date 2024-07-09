@@ -74,7 +74,11 @@
     "saved" : "Başarıyla kaydedildi"
   },
   "messages": {
-    "welcome" : "Demo uygulamasına hoşgeldiniz" 
+    "welcome" : "Demo uygulamasına hoşgeldiniz",
+    "excelImport": {
+      "fixErrors" : "Lütfen işaretlenen sorunları çözün ve dosyayı yeniden yükleyin",
+      "emptyImportData" : "Listeyi kayıt edebilmeniz için önce bir dosya yüklemelisiniz"
+    },
   },
   "routes": {
     "home": "Home",

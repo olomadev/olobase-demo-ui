@@ -72,7 +72,7 @@
 import Clipboard from "olobase-admin/src/mixins/clipboard";
 
 export default {
-  props: ["resource"],
+  props: ["resource", "title"],
   mixins: [Clipboard],
   inheritAttrs: false, // https://stackoverflow.com/questions/72246939/extraneous-non-props-attributes-title-were-passed-to-component-but-could-not-b
   created() {

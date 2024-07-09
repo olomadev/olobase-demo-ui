@@ -222,7 +222,7 @@ import { provide } from 'vue';
 import { mapActions } from "vuex"
 
 export default {
-  props: [],
+  props: ["resource", "title"],
   mixins: [Clipboard],
   inject: ['admin'],
   created() {
@@ -385,7 +385,7 @@ export default {
       listId: null,
       listName: null,
       companyId: null,
-      yearId: new Date().getFullYear(),
+      yearId: { id: new Date().getFullYear(), name: new Date().getFullYear() },
       loading: false,
       loadingList: false,
       importData: [],
@@ -393,7 +393,7 @@ export default {
       filters: [
         {
           source: "yearId",
-          type: "selectfilter",
+          type: "select",
           attributes: {
             optionText: "name",
             multiple: true,
@@ -460,11 +460,11 @@ export default {
         //
         // get status with EventSource
         // 
-        let user = await this.checkAuth();
-        if (user) {
+        let auth = await this.checkAuth();
+        if (auth) {
           const user = JSON.parse(userData);
           const apiUrl = import.meta.env.VITE_API_URL;
-          this.source = new EventSource(apiUrl + '/stream/events?userId=' + user.id + '&route=list');
+          this.source = new EventSource(apiUrl + '/stream/events?userId=' + auth.user.id + '&route=list');
           this.source.onmessage = function(e) {
             if (e.data) {
               let data = JSON.parse(e.data);
@@ -1070,7 +1070,7 @@ class JobTitleListImporter
       listId: null,
       listName: null,
       companyId: null,
-      yearId: new Date().getFullYear(),
+      yearId: { id: new Date().getFullYear(), name: new Date().getFullYear() },
       loading: false,
       loadingList: false,
       importData: [],
@@ -1078,7 +1078,7 @@ class JobTitleListImporter
       filters: [
         {
           source: "yearId",
-          type: "selectfilter",
+          type: "select",
           attributes: {
             optionText: "name",
             multiple: true,
@@ -1144,10 +1144,10 @@ class JobTitleListImporter
         //
         // get status with EventSource
         // 
-        let user = await this.checkAuth();
-        if (user) {
+        let auth = await this.checkAuth();
+        if (auth) {
           const apiUrl = import.meta.env.VITE_API_URL;
-          this.source = new EventSource(apiUrl + '/stream/events?userId=' + user.id + '&route=list');
+          this.source = new EventSource(apiUrl + '/stream/events?userId=' + auth.user.id + '&route=list');
           this.source.onmessage = function(e) {
             if (e.data) {
               let data = JSON.parse(e.data);
@@ -1178,18 +1178,18 @@ class JobTitleListImporter
         return false;
       }
       if (this.validationError) {
-      	this.$store.commit("messages/show", { type: 'error', message: this.$t("employees.fixErrorsMessage") });
+        this.$store.commit("messages/show", { type: 'error', message: this.$t("messages.excelImport.fixErrors") });
       } else {
-      	if (this.importData.length == 0) {
-      		this.$store.commit("messages/show", { type: 'error', message: this.$t("employees.importDataMessage") });
-      	} else {
-      		// save imported data
-      		// 
-      		this.admin.http({ method: "POST", url: "/jobtitlelists/import", data: { yearId: this.yearId, listName: this.listName } });
-					// check status every 1 seconds
-					// 
-      		this.importStatus();
-      	}
+        if (this.importData.length == 0) {
+          this.$store.commit("messages/show", { type: 'error', message: this.$t("messages.excelImport.emptyImportData") });
+        } else {
+          // save imported data
+          // 
+          this.admin.http({ method: "POST", url: "/jobtitlelists/import", data: { yearId: this.yearId, listName: this.listName } });
+          // check status every 1 seconds
+          // 
+          this.importStatus();
+        }
       }
   	},
     cancelSaveList() {
@@ -1198,6 +1198,9 @@ class JobTitleListImporter
       this.importData = []; // reset import data
       this.admin.http({ method: "DELETE", url: "/jobtitlelists/reset" }); // reset all status
       this.$store.dispatch("api/refresh", 'jobtitlelists'); // refresh page
+      if (this.source) {
+        this.source.close();
+      }
     },
   	downloadEmptyXls() {
   		window.location.href = "/src/assets/JobTitles.xlsx"

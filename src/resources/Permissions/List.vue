@@ -16,6 +16,8 @@
         disable-show
         disable-clone
         disable-create-redirect
+        disable-edit-redirect
+        disable-delete-redirect
       >
       </va-data-table-server>
     </va-list>
@@ -79,7 +81,7 @@ import { required } from "@vuelidate/validators";
 import Clipboard from "olobase-admin/src/mixins/clipboard"
 
 export default {
-  props: ["resource"],
+  props: ["resource", "title"],
   inject: ["admin"],
   mixins: [Clipboard],
   inheritAttrs: false,
@@ -100,6 +102,8 @@ export default {
         disable-show
         disable-clone
         disable-create-redirect
+        disable-edit-redirect
+        disable-delete-redirect
       >
       </va-data-table-server>
   </va-list>

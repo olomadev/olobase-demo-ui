@@ -88,7 +88,7 @@
 import { required } from "@vuelidate/validators";
 
 export default {
-  props: ["resource"],
+  props: ["resource", "title"],
   created() {
     this.template = `<template>
   <div>

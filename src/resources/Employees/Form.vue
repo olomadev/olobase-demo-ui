@@ -79,12 +79,13 @@
           primary-key="childId"
           :headers="headers"
           :fields="fields"
+          :create-id="true"
         >
           <template v-slot:[`edit`]="{ field }">
             <template v-if="field.source == 'childName'">
               <va-text-input
                 :key="field.source"
-                v-model="form.childName"
+                v-model="employeeChildrenForm.childName"
                 variant="outlined"
                 :error-messages="childNameErrors"
                 clearable
@@ -94,7 +95,7 @@
             <template v-if="field.source == 'childBirthdate'">
               <va-date-input
                 :key="field.source"
-                v-model="form.childBirthdate"
+                v-model="employeeChildrenForm.childBirthdate"
                 variant="outlined"
                 :error-messages="childBirthdateErrors"
               >
@@ -168,8 +169,8 @@ export default {
         files: [],
       },
       headers: [
-        { key: "childName" },
-        { key: "childBirthdate" },
+        { key: "childName", width: "40%" },
+        { key: "childBirthdate", width: "40%" },
         { key: "actions" },
       ],
       fields: [
@@ -202,7 +203,7 @@ export default {
           required
         }
       },
-      form: {
+      employeeChildrenForm: {
         childName: {
           required,
         },
@@ -216,7 +217,7 @@ export default {
     this.model.id = this.generateId(this);
   },
   computed: {
-    form: {
+    employeeChildrenForm: {
       get() {
         return this.$store.getters[`${this.resource}/getRow`];
       },
@@ -255,16 +256,16 @@ export default {
     childNameErrors() {
       const errors = [];
       const field = "childName";
-      if (!this.v$["form"][field].$dirty) return errors;
-      this.v$["form"][field].required.$invalid &&
+      if (!this.v$["employeeChildrenForm"][field].$dirty) return errors;
+      this.v$["employeeChildrenForm"][field].required.$invalid &&
         errors.push(this.$t("v.text.required"));
       return errors;
     },
     childBirthdateErrors() {
       const errors = [];
       const field = "childBirthdate";
-      if (!this.v$["form"][field].$dirty) return errors;
-      this.v$["form"][field].required.$invalid &&
+      if (!this.v$["employeeChildrenForm"][field].$dirty) return errors;
+      this.v$["employeeChildrenForm"][field].required.$invalid &&
         errors.push(this.$t("v.text.required"));
       return errors;
     },

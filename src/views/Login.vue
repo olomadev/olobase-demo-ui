@@ -1,10 +1,12 @@
 <template>
   <div class="xs-12 sm-10 md-8 lg-6">
-
     <va-messages></va-messages>
-
     <v-row>
-      <v-card width="350" class="noselect" style="margin-top: 200px">
+      <v-card 
+        width="350" 
+        class="noselect"
+        tyle="margin-top: 200px"
+        >
         <v-alert
           v-if="resetPassword"
           type="info"
