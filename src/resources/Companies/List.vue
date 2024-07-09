@@ -12,7 +12,6 @@
     </va-aside-layout>
     
     <va-list 
-      class="mb-0" 
       @action="onAction"
       :filters="filters"
       :fields="fields"

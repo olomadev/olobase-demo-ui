@@ -4,9 +4,10 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <link rel="icon" href="/favicon.ico" />
-  <meta name="ol:key" content="79DWHX-JTC3W9-HZSCNV-1IR372LDOMV" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+  <!-- dynamic codes start -->
+
+  <!-- dynamic codes end -->
   <style type="text/css">
     /* 
       olobase app.css 
@@ -17,12 +18,123 @@
       width: 100%;
       height: 100%;
     }
+    .product-detail .v-card-actions {
+      min-height: 0 !important;
+    }
+    .product-description ul {
+      margin-left: 15px;
+    }
+    .home_stock_table {
+      overflow: auto;
+      width: 100%;
+    }
+    .home_stock_table table {
+      border: 1px solid #dededf;
+      height: 100%;
+      width: 100%;
+      table-layout: fixed;
+      border-collapse: collapse;
+      border-spacing: 1px;
+      text-align: left;
+    }
+    .home_stock_table caption {
+      caption-side: top;
+      text-align: left;
+    }
+    .home_stock_table th {
+      border: 1px solid #dededf;
+      background-color: #fffdd0;
+      color: #000000;
+      padding: 5px;
+    }
+    .home_stock_table td {
+      border: 1px solid #dededf;
+      background-color: #fffdd0;
+      color: #000000;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+    .dashboard_stock_table {
+      overflow: auto;
+      width: 100%;
+    }
+    .dashboard_stock_table table {
+      border: 1px solid #dededf;
+      height: 100%;
+      width: 100%;
+      table-layout: fixed;
+      border-collapse: collapse;
+      border-spacing: 1px;
+      text-align: left;
+    }
+    .dashboard_stock_table caption {
+      caption-side: top;
+      text-align: left;
+    }
+    .dashboard_stock_table th {
+      border: 1px solid #dededf;
+      background-color: #fffdd0;
+      color: #000000;
+      padding: 10px;
+    }
+    .dashboard_stock_table td {
+      border: 1px solid #dededf;
+      background-color: #fffdd0;
+      color: #000000;
+      padding: 5px;
+      padding-left: 10px;
+/*      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 8px;
+      padding-right: 8px;*/
+    }
+    @-webkit-keyframes blinker {
+      from {opacity: 1.0;}
+      to {opacity: 0.0;}
+    }
+    .dashboard-blink {
+      text-decoration: blink;
+      color: green;
+      font-weight: bold;
+      -webkit-animation-name: blinker;
+      -webkit-animation-duration: 0.6s;
+      -webkit-animation-iteration-count:infinite;
+      -webkit-animation-timing-function:ease-in-out;
+      -webkit-animation-direction: alternate;
+    }
+    .v-chip.v-chip--size-default {
+      font-size: inherit !important;
+    }
+    .home .v-card-title {
+      font-size: 1.36rem !important;
+    }
+    .v-radio-group > .v-input__control > .v-label {
+      margin-inline-start: 0px !important;
+    }
+    .v-radio-group .v-input__details {
+      padding-inline: 0px !important;
+    }
+    .text-h7 {
+      font-size: 1.1rem !important;
+      line-height: 2rem;
+      letter-spacing: 0.0125em !important;
+      font-family: "Roboto", sans-serif;
+      text-transform: none !important;
+    }
+    .text-h8 {
+      font-size: 0.9rem !important;
+      line-height: 2rem;
+      letter-spacing: 0.0125em !important;
+      font-family: "Roboto", sans-serif;
+      text-transform: none !important;
+    }
+    .v-list-item-subtitle {
+      line-height: inherit !important;
+    }
     .v-navigation-drawer__prepend, .v-navigation-drawer__append {
       flex: auto !important;
-    }
-    .navbar-logo {
-      margin-top: 22px;
-      margin-bottom: 10px;
     }
     .bordered {
       border: 1px solid #dddddd;
@@ -70,6 +182,15 @@
     .v-table .item-actions .v-icon {
       font-size: 1.1em !important;
     }
+    .va-rich-text-editor {
+      border: 1px solid #ababab;
+      border-radius: 4px;
+      padding: 10px !important;
+    }
+    .va-rich-text-editor:focus-visible {
+      border: 2px solid rgb(var(--v-theme-primary));
+      outline: none; 
+    }
     .v-selection-control__input {
       font-size: 1.3rem !important;
     }
@@ -113,9 +234,9 @@
       padding-top: 2px;
     }
     /* input prepend append icon size */
-    .v-input .v-icon {
+/*    .v-input .v-icon {
       font-size: 20px !important;
-    }
+    }*/
     /* global v-list icon right space width  */
     .v-list-item__prepend > .v-icon {
     /*        margin-inline-end: 28px !important;*/
@@ -155,6 +276,41 @@
     .v-label.v-field-label {
       margin-inline-start: 12px !important;
       margin-inline-end: 12px !important;
+    }
+    .policy-body {
+      font-size: 12px;
+      font-family: "Roboto", sans-serif !important;
+    }
+    .policy-body a {
+      color: rgb(var(--v-theme-primary));
+    }
+    .policy-body ul {
+      padding-left: 20px;
+    }
+    .policy-embeded h1 {
+      margin-bottom: 10px;
+    }
+    .policy-embeded p {
+      margin-top: 10px !important;
+    }
+    .policy-embeded table {
+      margin-top:5px;
+    }
+    .policy-embeded table td:first-child {
+      width: 40%;
+    }
+    .policy-embeded table td:second-child:after {
+      content:':';
+    }
+    .policy-body h1 {
+        font-size: 1.40rem !important;
+        font-weight: 400;
+        color: rgb(var(--v-theme-primary));
+        line-height: 2.5rem;
+        font-family: "Roboto", sans-serif !important;
+    }
+    .policy-body strong {
+        color: rgb(var(--v-theme-primary));
     }
     /* field variant underlined global label */
     /*    .v-field--variant-underlined .v-label.v-field-label {
@@ -232,13 +388,13 @@
     }
     /* select option padding & height */
     .v-list-item--density-default.v-list-item--one-line {
-        min-height: 38px !important;
-        /*padding-top: 4px;
+        min-height: 40px !important;
+/*        padding-top: 4px;
         padding-bottom: 4px;*/
     }
     /* select option item font size */
     .v-list-item-title {
-      font-size: 13px !important;
+      font-size: 14px !important;
     }
     /* select option item left padding */
     .v-select__content .v-list .v-list-item-title {
@@ -263,16 +419,16 @@
     }
     /* grid checkbox row height */
     .v-selection-control--density-default {
+      --v-selection-control-size: 20px !important;
+    }
+/*    .v-selection-control-group .v-selection-control--density-default {
       --v-selection-control-size: 15px !important;
-    }
-    .v-selection-control-group .v-selection-control--density-default {
-      --v-selection-control-size: 25px !important;
-    }
+    }*/
     /* font global size: data-table grid and all cards */
     .v-container, .v-card-text {
       font-size: 13px !important;
     }
-    .v-chip.v-chip--size-small {
+/*    .v-chip.v-chip--size-small {
       font-size: 11px !important; 
     }
     .v-chip.v-chip--density-default {
@@ -280,7 +436,7 @@
       height: 20px !important;
       padding: 7px !important;
       margin-right: 2px;
-    }
+    }*/
 /*    .v-switch__thumb {
         height: 15px !important;
         width: 20px !important;
@@ -291,7 +447,7 @@
         width: 28px !important;
     }*/
     .h1 {
-        font-size: 1.75rem !important;
+        font-size: 1.55rem !important;
         font-weight: 400;
         line-height: 2.5rem;
         font-family: "Roboto", sans-serif !important;
@@ -405,15 +561,15 @@
     }
     /* v-snackbar transition start */
     .slide-in {
-        animation: slide-in 0.5s forwards;
-        -webkit-animation: slide-in 0.5s forwards;
+      animation: slide-in 0.5s forwards;
+      -webkit-animation: slide-in 0.5s forwards;
     }
     .slide-out {
-        animation: slide-out 0.5s forwards;
-        -webkit-animation: slide-out 0.5s forwards;
+      animation: slide-out 0.5s forwards;
+      -webkit-animation: slide-out 0.5s forwards;
     }   
     @keyframes slide-in {
-        100% { transform: translateY(0%); }
+      100% { transform: translateY(0%); }
     }
     .v-snackbar--active {
       position: absolute;
@@ -421,7 +577,6 @@
       -webkit-transform: translateY(-100%);  
     }
     /* v-snackbar transition end */
-
     /* Solid datatable  */
     table th + th { border-left:1px solid #dddddd; }
     table td + td { border-left:1px solid #dddddd; }
@@ -443,6 +598,9 @@
     .va-array-table-input .v-table__wrapper table {
       border: 1px solid #dddddd;
       border-radius: 4px;
+    }
+    .va-array-table-input .v-table__wrapper td table {
+      border: none !important;
     }
     .va-array-table-input .v-table__wrapper table th + th {
       border-left: 0 !important;

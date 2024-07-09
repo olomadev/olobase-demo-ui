@@ -2,7 +2,7 @@
   <v-row>
     <v-col sm="12">
       <v-form @submit.prevent="updateAccount">
-        <v-card flat>
+        <v-card flat border>
           <v-card-text>
             <div class="d-flex align-center mb-2">
               <h1 class="h1">{{ $t("resources.account.title") }}</h1>

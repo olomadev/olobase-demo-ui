@@ -176,6 +176,11 @@ export default  {
           },
           {
             icon: "circle",
+            text: t("menu.tinyMceInput"),
+            link: "/tinymce",
+          },
+          {
+            icon: "circle",
             text: t("menu.selectInput"),
             link: "/select",
           },

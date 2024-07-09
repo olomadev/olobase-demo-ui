@@ -5,6 +5,7 @@
       :filters="filters"
       >
         <va-data-table-server 
+          density="compact"
           disable-show
           :disable-actions="false"
         >

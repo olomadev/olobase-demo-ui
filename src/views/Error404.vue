@@ -2,7 +2,7 @@
   <div class="d-flex align-center justify-center fill-height">
     <v-row>
       <v-col cols="12">
-      <v-card flat>
+      <v-card flat border>
         <v-container fluid>
           <div class="h1 text-center">
             404

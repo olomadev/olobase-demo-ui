@@ -15,6 +15,7 @@ import number from "@/views/demo/Number";
 import Radio from "@/views/demo/RadioGroup";
 import Rating from "@/views/demo/Rating";
 import RichText from "@/views/demo/RichText";
+import TinyMce from "@/views/demo/TinyMce";
 import Select from "@/views/demo/Select";
 import Text from "@/views/demo/Text";
 import Test from "@/views/Test";
@@ -129,6 +130,14 @@ export default {
       component: RichText,
       meta: {
         title: i18n.global.t("menu.richtext"),
+      },
+    },
+    {
+      path: "/tinymce",
+      name: "tinymce",
+      component: TinyMce,
+      meta: {
+        title: i18n.global.t("menu.tinyMce"),
       },
     },
     {

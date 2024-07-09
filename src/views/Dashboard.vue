@@ -1,5 +1,5 @@
 <template>
-  <v-card variant="flat">
+  <v-card variant="flat" border>
     <v-card-text>
       {{ $t("messages.welcome")}}
     </v-card-text>

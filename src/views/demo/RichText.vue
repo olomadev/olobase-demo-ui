@@ -1,15 +1,32 @@
 <template>
   <div>
-    <v-card variant="flat" min-height="300px">
+    <v-card variant="flat" min-height="300px" border>
       <v-card-text>
       <v-row no-gutters>
         <v-col lg="8" md="6" sm="6">
-          <va-rich-text-input
+          <va-rich-text-editor
             :label="$t('demo.richtext')"
-            content-type="html"
+            source="richtext"
             v-model="model.richText"
+            :active-buttons="[
+              'bold',
+              'italic',
+              'strike',
+              'underline',
+              'code',
+              'h1',
+              'h2',
+              'h3',
+              'bulletList',
+              'orderedList',
+              'blockquote',
+              'codeBlock',
+              'horizontalRule',
+              'undo',
+              'redo',
+            ]"
           >
-          </va-rich-text-input>
+          </va-rich-text-editor>
         </v-col>
       </v-row>
         {{ model.richText }}
@@ -59,12 +76,29 @@ export default {
   <div>
     <v-card variant="flat">
       <v-card-text>
-        <va-rich-text-input
-          :label="$t('demo.richText')"
-          content-type="html"
+        <va-rich-text-editor
+          :label="$t('demo.richtext')"
+          source="richtext"
           v-model="model.richText"
+          :active-buttons="[
+            'bold',
+            'italic',
+            'strike',
+            'underline',
+            'code',
+            'h1',
+            'h2',
+            'h3',
+            'bulletList',
+            'orderedList',
+            'blockquote',
+            'codeBlock',
+            'horizontalRule',
+            'undo',
+            'redo',
+          ]"
         >
-        </va-rich-text-input>
+        </va-rich-text-editor>
       </v-card-text>
     </v-card>
   </div>

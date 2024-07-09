@@ -1,6 +1,6 @@
 <template>
   <v-form @submit.prevent="changePassword">
-    <v-card flat>
+    <v-card flat border>
       <v-card-text>
         <div class="d-flex align-center mb-2">
           <h1 class="h1">{{ $t("resources.account.passwordChange") }}</h1>

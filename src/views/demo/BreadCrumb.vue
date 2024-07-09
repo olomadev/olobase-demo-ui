@@ -1,6 +1,10 @@
 <template>
   <div>
-    <va-breadcrumbs />
+    <v-card variant="flat" border>
+      <v-card-text>
+        <va-breadcrumbs />
+      </v-card-text>
+    </v-card>
 
     <v-tabs
       class="mt-3"

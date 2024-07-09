@@ -1,15 +1,17 @@
 <template>
   <div>
-    <v-card variant="flat" border>
+    <v-card variant="flat" min-height="300px" border>
       <v-card-text>
       <v-row no-gutters>
-        <v-col lg="3" md="4" sm="6">
-          <va-date-input
-            :label="$t('demo.date')"
-            v-model="model.date"
-          ></va-date-input>
+        <v-col lg="8" md="6" sm="6">
+          <va-tiny-mce-editor
+            :options="getEditorOptions"
+            v-model="model.richText"
+          >
+          </va-tiny-mce-editor>
         </v-col>
       </v-row>
+        {{ model.richText }}
       </v-card-text>
     </v-card>
 
@@ -48,32 +50,42 @@
 </template>
 
 <script>
+import Trans from "@/i18n/translation";
 import Clipboard from "olobase-admin/src/mixins/clipboard"
 
 export default {
   mixins: [Clipboard],
   created() {
-    this.template = `<template>
+    this.template = `\<template\>
   <div>
     <v-card variant="flat">
       <v-card-text>
-        <va-date-input
-          :label="$t('demo.date')"
-          v-model="model.date"
-        ></va-date-input>
+        <va-tiny-mce-editor
+          :options="getEditorOptions"
+          v-model="model.richText"
+        >
+        </va-tiny-mce-editor>
       </v-card-text>
     </v-card>
   </div>
-</template>`;
-
+\</template\>`;
+  
   this.script = `\<script\>
 export default {
   data() {
     return {
       model: {
-        date: null
+        richText: "Hello World !",
       },
     };
+  },
+  computed: {
+    getEditorOptions() {
+      if (Trans.guessDefaultLocale() == 'tr') {
+        return { language: 'tr', min_height: 250 };
+      }
+      return { min_height: 250  };
+    }
   }
 };
 \</script\>`;
@@ -81,20 +93,29 @@ export default {
   data() {
     return {
       tab: null,
+      model: {
+        richText: "Hello World !",
+      },
       template: null,
       script: null,
-      model: {
-        date: null
-      },
     };
+  },
+  computed: {
+    getEditorOptions() {
+      if (Trans.guessDefaultLocale() == 'tr') {
+        return { language: 'tr', min_height: 250 };
+      }
+      return { min_height: 250  };
+    }
   },
   watch: {
     tab(value) {
-      if (value == 1) {
+      if (value > 0) {
         Prism.highlightAll(); // highlight code
       }   
     }
   }
 };
 </script>
+
 
