@@ -128,15 +128,19 @@ export default {
       fields: [
         {
           source: "yearId",
-          reference: "years",
           type: "select",
           sortable: true,
+          attributes: {
+            reference: "years",
+          },
         },
         {
           source: "companyId",
-          reference: "companies",
           type: "select",
           sortable: true,
+          attributes: {
+            reference: "companies",
+          },
         },
         {
           source: "jobTitleName",
@@ -196,15 +200,19 @@ export default {
       fields: [
         {
           source: "yearId",
-          reference: "years",
           type: "select",
           sortable: true,
+          attributes: {
+            reference: "years",
+          },
         },
         {
           source: "companyId",
-          reference: "companies",
           type: "select",
           sortable: true,
+          attributes: {
+            reference: "companies",
+          },
         },
         {
           source: "jobTitleName",

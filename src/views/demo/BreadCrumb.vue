@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card variant="flat" border>
+    <v-card variant="flat">
       <v-card-text>
         <va-breadcrumbs />
       </v-card-text>

@@ -340,22 +340,6 @@
         "route" : "Route",
         "method" : "Method",
         "actions" : "Actions"
-      },
-      "enums": {
-        "action": {
-          "create": "create",
-          "delete": "delete",
-          "edit": "edit",
-          "list": "list",
-          "show": "show"
-        },
-        "method": {
-          "POST": "POST",
-          "GET" : "GET",
-          "PUT" : "PUT",
-          "DELETE": "DELETE",
-          "PATCH" : "PATCH"
-        }
       }
     },
     "users": {
@@ -436,17 +420,6 @@
         "actions": "Actions",
         "employees": "Employees",
         "autocompleterPlaceholder": "Please choose an employee"
-      },
-      "enums": {
-        "genderId": {
-          "m": "Male",
-          "f": "Female"
-        },
-        "currencyId": {
-          "TRY" : "Turkish Lira",
-          "USD" : "Dolar",
-          "EUR" : "Euro"
-        }
       }
     },
     "failedlogins": {

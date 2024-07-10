@@ -16,8 +16,6 @@
         disable-show
         disable-clone
         disable-create-redirect
-        disable-edit-redirect
-        disable-delete-redirect
       >
       </va-data-table-server>
     </va-list>
@@ -196,6 +194,9 @@ export default {
           source: "action",
           type: "select",
           sortable: true,
+          attributes: {
+            reference: "actions",
+          }
         },
         {
           source: "route",
@@ -205,6 +206,9 @@ export default {
           source: "method",
           type: "select",
           sortable: true,
+          attributes: {
+            reference: "methods",
+          }
         },
       ],
     };
@@ -548,6 +552,9 @@ class PermissionModel implements PermissionModelInterface
           source: "action",
           type: "select",
           sortable: true,
+          attributes: {
+            reference: "actions",
+          }
         },
         {
           source: "route",
@@ -557,6 +564,9 @@ class PermissionModel implements PermissionModelInterface
           source: "method",
           type: "select",
           sortable: true,
+          attributes: {
+            reference: "methods",
+          },
         },
       ],
     };

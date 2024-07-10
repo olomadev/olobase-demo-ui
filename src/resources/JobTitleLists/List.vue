@@ -219,7 +219,8 @@ import Clipboard from "olobase-admin/src/mixins/clipboard"
 import { useVuelidate } from "@vuelidate/core";
 import { required } from "@vuelidate/validators";
 import { provide } from 'vue';
-import { mapActions } from "vuex"
+import { mapActions } from "vuex";
+import { EventSourcePolyfill } from 'event-source-polyfill';
 
 export default {
   props: ["resource", "title"],
@@ -1066,6 +1067,7 @@ class JobTitleListImporter
       //----------------
     	cancel: false,
       status: false,
+      eventSource: null,
     	loadingStatus: false,
       listId: null,
       listName: null,
@@ -1138,37 +1140,35 @@ class JobTitleListImporter
 			this.$router.push({ name: "jobtitles_list", query: { filter: filter } });
     },
     async importStatus() {
-    	let Self = this;
+      await this.createEventSource();
+    },
+    async createEventSource() {
       this.loadingStatus = true;
-      try {
-        //
-        // get status with EventSource
-        // 
-        let auth = await this.checkAuth();
-        if (auth) {
-          const apiUrl = import.meta.env.VITE_API_URL;
-          this.source = new EventSource(apiUrl + '/stream/events?userId=' + auth.user.id + '&route=list');
-          this.source.onmessage = function(e) {
-            if (e.data) {
-              let data = JSON.parse(e.data);
-              if (data.status == 1 || data.status == true) {
-                Self.source.close(); // lets close it when the process is done !
-                Self.status = false;
-                Self.loadingStatus = false
-                Self.importData = []; // reset import data
-                Self.admin.http({ method: "DELETE", url: "/jobtitlelists/reset" }); // reset all status
-                Self.$store.dispatch("api/refresh", 'jobtitlelists');
-              }
-            }
-          };
+      const auth = await this.checkAuth();
+      const API_BASE_URL = import.meta.env.VITE_API_URL;
+      this.eventSource = new EventSourcePolyfill(API_BASE_URL + '/stream/events?userId=' + auth.user.id + '&route=list');
+      this.eventSource.onerror = function (event) {
+        if (event.status == 401) { // token expired
+          Self.eventSource.close(); // close current event
+          setTimeout(function() {
+            Self.createEventSource();
+          }, 3000);
+          Self.admin.http.post("/auth/session"); // refresh token
+        }        
+      };
+      this.eventSource.onmessage = function(e) {
+        if (e.data) {
+          let data = JSON.parse(e.data);
+          if (data.status == 1 || data.status == true) {
+            Self.eventSource.close(); // lets close it when the process is done !
+            Self.status = false;
+            Self.loadingStatus = false
+            Self.importData = []; // reset import data
+            Self.admin.http({ method: "DELETE", url: "/jobtitlelists/reset" }); // reset all status
+            Self.$store.dispatch("api/refresh", 'jobtitlelists');
+          }
         }
-      } catch (e) {
-        if (e["response"]
-          && e["response"]["status"]
-          && e.response.status === 400) {
-          this.admin.message("error", e.response.data.data.error);
-        }
-      }
+      };
     },
   	saveList() {
       this.cancel = false;
@@ -1183,11 +1183,7 @@ class JobTitleListImporter
         if (this.importData.length == 0) {
           this.$store.commit("messages/show", { type: 'error', message: this.$t("messages.excelImport.emptyImportData") });
         } else {
-          // save imported data
-          // 
           this.admin.http({ method: "POST", url: "/jobtitlelists/import", data: { yearId: this.yearId, listName: this.listName } });
-          // check status every 1 seconds
-          // 
           this.importStatus();
         }
       }
@@ -1198,8 +1194,8 @@ class JobTitleListImporter
       this.importData = []; // reset import data
       this.admin.http({ method: "DELETE", url: "/jobtitlelists/reset" }); // reset all status
       this.$store.dispatch("api/refresh", 'jobtitlelists'); // refresh page
-      if (this.source) {
-        this.source.close();
+      if (this.eventSource) {
+        this.eventSource.close();
       }
     },
   	downloadEmptyXls() {

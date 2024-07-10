@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card variant="flat" min-height="300px" border>
+    <v-card variant="flat" min-height="300px">
       <v-card-text>
       <v-row no-gutters>
         <v-col lg="8" md="6" sm="6">
