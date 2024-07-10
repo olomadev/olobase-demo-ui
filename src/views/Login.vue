@@ -213,6 +213,7 @@ export default {
       this.loading = true;
       try {
         await this.login({ username: this.username, password: this.password });
+        this.$router.push({ name: "dashboard" });
       } catch (e) {
         this.loading = false;
       }

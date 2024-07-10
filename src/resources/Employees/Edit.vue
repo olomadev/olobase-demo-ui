@@ -174,29 +174,24 @@ export default {
               :fields="fields"
               :generate-uid="true"
             >
-              <template v-slot:[\`edit\`]="{ field }">
-                <template v-if="field.source == 'childName'">
-                  <va-text-input
-                    :key="field.source"
-                    v-model="form.childName"
-                    :filled="false"
-                    variant="underlined"
-                    :error-messages="childNameErrors"
-                    clearable
-                  >
-                  </va-text-input>
-                </template>
-                <template v-if="field.source == 'childBirthdate'">
-                  <va-date-input
-                    :key="field.source"
-                    v-model="form.childBirthdate"
-                    :filled="false"
-                    input-mode="keyboard"
-                    variant="underlined"
-                    :error-messages="childBirthdateErrors"
-                  >
-                  </va-date-input>
-                </template>
+              <template v-slot:[\`input.childName\`]="{ field }">
+                <va-text-input
+                  :key="field.source"
+                  v-model="employeeChildrenForm.childName"
+                  variant="outlined"
+                  :error-messages="childNameErrors"
+                  clearable
+                >
+                </va-text-input>
+              </template>
+              <template v-slot:[\`input.childBirthdate\`]="{ field }">
+                <va-date-input
+                  :key="field.source"
+                  v-model="employeeChildrenForm.childBirthdate"
+                  variant="outlined"
+                  :error-messages="childBirthdateErrors"
+                >
+                </va-date-input>
               </template>
             </va-array-table-input>
           </v-col>

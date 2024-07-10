@@ -331,6 +331,7 @@ export default {
             response = await this.admin.http({ method: "GET", url: "/auth/logout" });
             if (response.status == 200) {
               this.$store.dispatch("auth/logout");
+              this.$router.push({ name: "login" });
             }
           }
         } catch (e) {
