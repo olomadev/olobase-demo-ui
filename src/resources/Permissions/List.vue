@@ -16,6 +16,7 @@
         disable-show
         disable-clone
         disable-create-redirect
+        disable-delete-redirect
       >
       </va-data-table-server>
     </va-list>

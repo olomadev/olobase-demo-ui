@@ -125,6 +125,7 @@ export default {
         {
           source: "employeeNumber",
           sortable: true,
+          type: "number",
           width: "10%"
         },
         {
